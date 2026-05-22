@@ -1,64 +1,78 @@
-# perfume-similarity-thesis
-Bachelor Thesis Coding Component
+# Predicting Human Perfume Similarity Judgments from Description Embeddings and Fragrance Notes
 
-Project Overview
+Helin Ökmen — Tilburg University BSc Cognitive Science and Artificial Intelligence — 2026
 
-This project investigates whether computational similarity measures derived from perfume descriptions and fragrance notes can predict human olfactory similarity judgments collected in a smell-based experiment.
+## Project Overview
 
-Several computational similarity approaches were compared, including:
+This project is the coding component of my bachelor thesis. It investigates whether computational similarity measures derived from perfume descriptions and fragrance notes can predict human olfactory similarity judgments collected in a smell-based experiment.
 
-* MiniLM description embedding similarity
-* TF-IDF description similarity
-* fragrance-note overlap
-* a combined embedding and note-overlap model
+Four computational similarity approaches were compared:
 
-The goal of the project was to examine how well language-based perfume representations align with human olfactory similarity perception, and how they compare to structured fragrance-note information.
+- MiniLM sentence-transformer description embedding similarity
+- TF-IDF description similarity
+- Fragrance-note overlap based on Jaccard similarity
+- A combined model using both embedding similarity and note overlap
 
+## Folder Structure
+thesis_coding_component/
+├── data/
+│   ├── final_pairs.csv                  # The 18 perfume pairs used in the experiment
+│   ├── final_master_dataset.csv         # Pair-level computational similarity scores
+│   ├── desc_emb_minilm.npy              # Pre-computed MiniLM embeddings (not included, 123MB)
+│   ├── desc_emb_minilm_meta.csv         # Metadata aligned with embedding rows
+│   └── pair_level_human_summary.csv     # Mean human similarity ratings per pair
+├── scripts/
+│   ├── make_desc_embeddings_safe.py          # Generates MiniLM embeddings from descriptions
+│   ├── recompute_final_pairs_scores.py       # Computes similarity scores for the 18 pairs
+│   ├── find_candidate_pairs.py               # Generates candidate pairs for manual selection
+│   ├── prepare_human_ratings.py              # Processes Qualtrics data into pair-level ratings
+│   ├── run_prediction_analysis.py            # Runs LOOCV prediction models (main analysis)
+│   ├── run_model_diagnostics.py              # Runs OLS regression and generates diagnostic plots
+│   ├── category_comparison_analysis.py       # Runs Kruskal-Wallis and Mann-Whitney U tests
+│   ├── validating_analysis_dataset.py        # Validation checks on the merged dataset
+│   └── plot_model_performance.py             # Generates bar chart of model performance
+└── README.md
 
-Dataset
+Note: `fragrantica_dataset/` is not included in this repository. The original dataset is not redistributed due to data ownership considerations (see Dataset Availability). `desc_emb_minilm.npy` exceeds GitHub file size limit and is also not included. Both are available upon request.
 
-The project uses a perfume dataset containing:
+## How to Reproduce the Results
 
-* perfume descriptions
-* fragrance notes
-* perfume metadata
+The scripts should be run in this order:
 
-The original dataset included approximately 84,000 perfumes.
+1. `make_desc_embeddings_safe.py` — generates MiniLM embeddings from perfume descriptions (see note below)
+2. `recompute_final_pairs_scores.py` — computes similarity scores for the 18 final pairs
+3. `prepare_human_ratings.py` — processes the Qualtrics export into pair-level ratings
+4. `run_prediction_analysis.py` — runs the LOOCV prediction models and produces the main results
+5. `run_model_diagnostics.py` — runs full-sample OLS regression and generates diagnostic figures
+6. `category_comparison_analysis.py` — runs nonparametric category comparison tests
+7. `validating_analysis_dataset.py` — runs validation checks on the merged dataset
+8. `plot_model_performance.py` — generates the model performance bar chart
 
-A smaller subset of perfume pairs was selected for the human experiment after several filtering stages. These filtering steps aimed to:
+**Note:** Steps 3 onwards can be run directly using the files already in the `data/` folder. Step 1 requires PyTorch >= 2.4 and the original dataset. If your environment has an older PyTorch version, skip step 1 and request the pre-computed `desc_emb_minilm.npy` file.
 
-* remove perfumes with missing descriptions
-* reduce superficial lexical overlap
-* reduce the effect of generic perfume terminology
-* select perfumes that were physically available for the smell-based experiment
+## Dataset Availability
 
-Human similarity judgments were collected from 28 participants through an in-person smell-based similarity-rating experiment conducted in Qualtrics.
+The original dataset was a publicly available Kaggle dataset containing perfume descriptions and fragrance-note information from Fragrantica.com (Hussein, 2024). The dataset was last accessed on April 17, 2026. At the time this project was finalized, the original dataset was no longer publicly accessible online.
 
-Participants rated perfume-pair similarity on a 7-point scale.
+The processed similarity scores, selected perfume pairs, and human rating data needed to reproduce the prediction analyses are included in this repository. Fully reproducing the preprocessing pipeline from scratch requires the original `perfumes_table.csv`, which is preserved locally but not redistributed due to data ownership considerations.
 
+## Dependencies
 
-Dataset Availability
+Python 3.12.7 (Anaconda environment)
 
-The original dataset was based on a publicly available Kaggle dataset containing perfume descriptions and fragrance-note information scraped from Fragrantica.com.
+| Library | Version |
+|---|---|
+| pandas | 2.2.2 |
+| NumPy | 1.26.4 |
+| scikit-learn | 1.5.1 |
+| SciPy | 1.13.1 |
+| statsmodels | 0.14.2 |
+| matplotlib | 3.9.2 |
+| seaborn | 0.13.2 |
+| sentence-transformers | 5.2.3 |
 
-At the time this project was finalized, the original online dataset was no longer publicly accessible. A local copy used during the analyses was preserved for reproducibility purposes.
+Embedding model: `all-MiniLM-L6-v2`
 
-Raw perfume descriptions are not redistributed in this repository due to data ownership considerations. The repository instead contains processed similarity measures, embeddings, selected perfume pairs, and analysis outputs required to reproduce the analyses.
+## Reference
 
-
-Folder Structure
-
-fragrantica_dataset/
-
-Contains the preserved local copy of the original Fragrantica-based dataset used during preprocessing and dataset construction.
-
-Main file used in the project:
-
-* perfumes_table.csv
-
-Additional files in the folder were kept only for reference and intermediate preprocessing purposes.
-
-Example development path:
-
-```python
-base_path = "/Users/helinokmen/Desktop/thesis_coding_component/fragrantica_dataset"
+Hussein, J. (2024). Fragrantica Data [Data set]. Kaggle. https://www.kaggle.com/datasets/joehusseinmama/fragrantica-data (Last accessed: April 17, 2026)
