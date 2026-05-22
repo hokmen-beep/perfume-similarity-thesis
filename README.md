@@ -39,14 +39,14 @@ Note: `fragrantica_dataset/` is not included in this repository. The original da
 
 The scripts should be run in this order:
 
-1. `make_desc_embeddings_safe.py` — generates MiniLM embeddings from perfume descriptions (see note below)
-2. `recompute_final_pairs_scores.py` — computes similarity scores for the 18 final pairs
-3. `prepare_human_ratings.py` — processes the Qualtrics export into pair-level ratings
-4. `run_prediction_analysis.py` — runs the LOOCV prediction models and produces the main results
-5. `run_model_diagnostics.py` — runs full-sample OLS regression and generates diagnostic figures
-6. `category_comparison_analysis.py` — runs nonparametric category comparison tests
-7. `validating_analysis_dataset.py` — runs validation checks on the merged dataset
-8. `plot_model_performance.py` — generates the model performance bar chart
+1. `make_desc_embeddings_safe.py` - generates MiniLM embeddings from perfume descriptions (see note below)
+2. `recompute_final_pairs_scores.py` - computes similarity scores for the 18 final pairs
+3. `prepare_human_ratings.py` - processes the Qualtrics export into pair-level ratings
+4. `run_prediction_analysis.py` - runs the LOOCV prediction models and produces the main results
+5. `run_model_diagnostics.py` - runs full-sample OLS regression and generates diagnostic figures
+6. `category_comparison_analysis.py` - runs nonparametric category comparison tests
+7. `validating_analysis_dataset.py` - runs validation checks on the merged dataset
+8. `plot_model_performance.py` - generates the model performance bar chart
 
 **Note:** Steps 3 onwards can be run directly using the files already in the `data/` folder. Step 1 requires PyTorch >= 2.4 and the original dataset. If your environment has an older PyTorch version, skip step 1 and request the pre-computed `desc_emb_minilm.npy` file.
 
