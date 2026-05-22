@@ -12,6 +12,9 @@ Four computational similarity approaches were compared:
 - TF-IDF description similarity
 - Fragrance-note overlap based on Jaccard similarity
 - A combined model using both embedding similarity and note overlap
+## Main Findings
+
+The analyses showed that fragrance-note overlap substantially outperformed language-based description similarity measures in predicting human olfactory similarity judgments. MiniLM embeddings showed limited predictive performance, while TF-IDF similarity performed weakly overall.
 
 ## Folder Structure
 thesis_coding_component/
