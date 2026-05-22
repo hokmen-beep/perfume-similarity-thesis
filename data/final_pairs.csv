@@ -1,0 +1,19 @@
+export_tag,perfume_1,perfume_2,category,block
+HS1_libre_destinee,Libre Yves Saint Laurent for women,Destinée La Rive for women and men,high,1
+MS1_paradoxe_flower,Prada Paradoxe Prada for women,Flower by Kenzo Eau de Vie Kenzo for women,medium,1
+RD1_randompair1,Crazy Rich Novellista for women and men,Chloé Rose Naturelle Intense Chloé for women,low/random,1
+HS2_etkiss_honey,Eternal Kiss La Rive for women,Honey Nuancielo for women,high,1
+MS2_1mil_lemale,1 Million Paco Rabanne for men,Le Male Jean Paul Gaultier for men,medium,1
+RD2_randompair2,Invictus Victory Paco Rabanne for men,Hero Burberry for men,low/random,1
+MS3_fame_sauvage,Fame Paco Rabanne for women,Sauvage Parfum Dior for men,medium,2
+HS3_sipassion_idole,Sì Passione Intense Giorgio Armani for women,Idôle Lancôme for women,high,2
+RD3_randompair3,J'adore Dior for women,Chloe Eau de Parfum Chloé for women,low/random,2
+MS4_poudree_shewood,Narciso Poudree Narciso Rodriguez for women,She Wood DSQUARED² for women,medium,2
+MS5_sauvage_terre,Sauvage Dior for men,Terre d'Hermès Hermès for men,medium,2
+HS4_burbher_scand,Burberry Her Elixir de Parfum Burberry for women,Scandal Le Parfum Jean Paul Gaultier for women,high,3
+RD4_randompair4,Gucci Guilty Absolute pour Femme Gucci for women,Versace Pour Femme Dylan Purple Versace for women,low/random,3
+MS6_vivala_lovely,Viva la Juicy Juicy Couture for women,Lovely Lights Sarah Jessica Parker for women,medium,3
+HS6_queenlife_omerta,Queen of Life La Rive for women,Ma Merveilleuse Omerta for women,high,3
+RD5_randompair5,No Limit$ Gold Philipp Plein Parfums for men,Acqua di Giò Profondo Giorgio Armani for men,low/random,3
+RD6_randompair6,Audace Rochas for women,Jimmy Choo Jimmy Choo for women,low/random,3
+HS5_idole_iamideal,Idôle Lancôme for women,I Am Ideal La Rive for women,high,3
