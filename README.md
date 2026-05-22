@@ -18,24 +18,46 @@ A combined embedding and note-overlap regression model was also evaluated.
 The analyses showed that fragrance-note overlap substantially outperformed language-based description similarity measures in predicting human olfactory similarity judgments. MiniLM embeddings showed limited predictive performance, while TF-IDF similarity performed weakly overall.
 
 ## Folder Structure
+
+```text
+
 thesis_coding_component/
+
 ├── data/
-│   ├── final_pairs.csv                  # The 18 perfume pairs used in the experiment
-│   ├── final_master_dataset.csv         # Pair-level computational similarity scores
-│   ├── desc_emb_minilm.npy              # Pre-computed MiniLM embeddings (not included, 123MB)
-│   ├── desc_emb_minilm_meta.csv         # Metadata aligned with embedding rows
-│   └── pair_level_human_summary.csv     # Mean human similarity ratings per pair
+
+│   ├── final_pairs.csv
+
+│   ├── final_master_dataset.csv
+
+│   ├── desc_emb_minilm.npy
+
+│   ├── desc_emb_minilm_meta.csv
+
+│   └── pair_level_human_summary.csv
+
 ├── scripts/
-│   ├── make_desc_embeddings_safe.py          # Generates MiniLM embeddings from descriptions
-│   ├── recompute_final_pairs_scores.py       # Computes similarity scores for the 18 pairs
-│   ├── find_candidate_pairs.py               # Generates candidate pairs for manual selection
-│   ├── prepare_human_ratings.py              # Processes Qualtrics data into pair-level ratings
-│   ├── run_prediction_analysis.py            # Runs LOOCV prediction models (main analysis)
-│   ├── run_model_diagnostics.py              # Runs OLS regression and generates diagnostic plots
-│   ├── category_comparison_analysis.py       # Runs Kruskal-Wallis and Mann-Whitney U tests
-│   ├── validating_analysis_dataset.py        # Validation checks on the merged dataset
-│   └── plot_model_performance.py             # Generates bar chart of model performance
+
+│   ├── make_desc_embeddings_safe.py
+
+│   ├── recompute_final_pairs_scores.py
+
+│   ├── find_candidate_pairs.py
+
+│   ├── prepare_human_ratings.py
+
+│   ├── run_prediction_analysis.py
+
+│   ├── run_model_diagnostics.py
+
+│   ├── category_comparison_analysis.py
+
+│   ├── validating_analysis_dataset.py
+
+│   └── plot_model_performance.py
+
 └── README.md
+
+```
 
 Note: `fragrantica_dataset/` is not included in this repository. The original dataset is not redistributed due to data ownership considerations (see Dataset Availability). `desc_emb_minilm.npy` exceeds GitHub file size limit and is also not included. Both are available upon request.
 
