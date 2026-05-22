@@ -6,12 +6,13 @@ Helin Ökmen - Tilburg University BSc Cognitive Science and Artificial Intellige
 
 This project is the coding component of my bachelor thesis. It investigates whether computational similarity measures derived from perfume descriptions and fragrance notes can predict human olfactory similarity judgments collected in a smell-based experiment.
 
-Four computational similarity approaches were compared:
+Three computational similarity measures were evaluated:
 
 - MiniLM sentence-transformer description embedding similarity
 - TF-IDF description similarity
-- Fragrance-note overlap based on Jaccard similarity
-- A combined model using both embedding similarity and note overlap
+- Fragrance-note overlap (Jaccard similarity)
+
+A combined embedding and note-overlap regression model was also evaluated.
 ## Main Findings
 
 The analyses showed that fragrance-note overlap substantially outperformed language-based description similarity measures in predicting human olfactory similarity judgments. MiniLM embeddings showed limited predictive performance, while TF-IDF similarity performed weakly overall.
