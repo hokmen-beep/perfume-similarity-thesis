@@ -1,6 +1,6 @@
 # Predicting Human Perfume Similarity Judgments from Description Embeddings and Fragrance Notes
 
-Helin Ökmen — Tilburg University BSc Cognitive Science and Artificial Intelligence — 2026
+Helin Ökmen - Tilburg University BSc Cognitive Science and Artificial Intelligence - 2026
 
 ## Project Overview
 
